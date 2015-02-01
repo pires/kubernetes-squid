@@ -1,0 +1,10 @@
+{
+  "id": "squid",
+  "kind": "Service",
+  "apiVersion": "v1beta1",
+  "port": 3129,
+  "containerPort": 3129,
+  "selector": {
+    "component": "squid",
+  }
+}
