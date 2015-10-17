@@ -1,34 +1,34 @@
 {
-  "id":"squid",
   "kind":"ReplicationController",
-  "apiVersion":"v1beta1",
-  "desiredState":{
+  "apiVersion":"v1",
+  "metadata":{
+    "name":"squid"
+  },
+  "spec":{
     "replicas":1,
-    "replicaSelector":{
+    "selector":{
       "component":"squid"
-      },
-      "podTemplate":{
-        "desiredState":{
-          "manifest":{
-            "version":"v1beta1",
-            "id":"squid",
-            "containers":[
-            {
-              "name":"squid",
-              "image":"jpetazzo/squid-in-a-can",
-              "ports":[
-              {
-                "name":"squid",
-                "containerPort":3129
-              }
-              ]
-            }
-            ]
-          }
-          },
-          "labels":{
-            "component":"squid"
-          }
+    },
+    "template":{
+      "metadata":{
+        "labels":{
+          "component":"squid"
         }
+      },
+      "spec":{
+        "containers":[
+        {
+          "name":"squid",
+          "image":"jpetazzo/squid-in-a-can",
+          "ports":[
+          {
+            "name":"squid",
+            "containerPort":3129
+          }
+          ]
+        }
+        ]
       }
     }
+  }
+}
